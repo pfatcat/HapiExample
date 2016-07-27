@@ -15,7 +15,8 @@ const allVols = [
 			{volId: 3, firstName: "Evan", lastName: "Berry", position: "Defensive Back" },
 			{volId: 4, firstName: "Ethan", lastName: "Wolf", position: "Tight End" },
 			{volId: 5, firstName: "Curt", lastName: "Maggitt", position: "Linebacker" },
-			{volId: 6, firstName: "Jalen", lastName: "Reeves-Maybin", position: "Linebacker" }
+			{volId: 6, firstName: "Jalen", lastName: "Reeves-Maybin", position: "Linebacker" },
+			{volId: 7, firstName: "Cameron", lastName: "Sutton", position: "Defensive Back" }
 		];
 
 // Add the route
@@ -36,18 +37,21 @@ server.route({
     path:'/getAVol', 
     handler: function (request, reply) {
 
-		const volId = request.payload.volId;
+		const volId = parseInt(request.payload.volId);
+		
+		if(!volId || volId > 7){
+			let retObj = {volId: -1, message: "Invalid volId"};
+			return reply(retObj);
+		}
 		
 		for(let i = 0; i < allVols.length; i++){
 			let vol = allVols[i];
-			if(vol.volId === volId)
-			{
+			if(vol.volId === volId){
 				return reply(vol);
 			}
 		}
 		
 		let retObj = {volId: -1, message: "Vol not found"};
-		
         return reply(retObj);
     }
 });
