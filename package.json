@@ -4,7 +4,8 @@
   "description": "",
   "main": "example.js",
   "dependencies": {
-    "hapi": "^13.5.0"
+    "hapi": "^13.5.0",
+    "require-dir": "^0.3.0"
   },
   "devDependencies": {},
   "scripts": {
