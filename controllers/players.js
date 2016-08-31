@@ -13,9 +13,7 @@ playerController.getAllVols = function (request, reply) {
 playerController.getAVol = function (request, reply) {
 
 		const volId = parseInt(request.payload.volId);
-		
-		var sac = "super awesome change";
-		
+			
 		if(!volId){
 			let retObj = {volId: -1, message: "Invalid volId"};
 			return reply(retObj);
