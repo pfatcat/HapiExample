@@ -14,9 +14,7 @@ playerController.getAVol = function (request, reply) {
 
 		const volId = parseInt(request.payload.volId);
 		
-		var nmac = "next major awesome change";
-		var dwto = "don't want this one";
-		var ato = "also this one";
+		var change1 = "first change";
 			
 		if(!volId){
 			let retObj = {volId: -1, message: "Invalid volId"};
