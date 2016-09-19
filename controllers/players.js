@@ -27,6 +27,9 @@ playerController.getAVol = function (request, reply) {
 			vol = {volId: -1, message: "vol not found"};
 		}
 
+		
+		var masterChange2 = "we want this one";
+		
         return reply(vol);
   };
 	
