@@ -14,8 +14,6 @@ playerController.getAVol = function (request, reply) {
 
 		const volId = parseInt(request.payload.volId);
 		
-		var masterChange1 = "don't want this";
-					
 		if(!volId){
 			let retObj = {volId: -1, message: "Invalid volId"};
 			return reply(retObj);
@@ -26,9 +24,6 @@ playerController.getAVol = function (request, reply) {
 		if(!vol){
 			vol = {volId: -1, message: "vol not found"};
 		}
-
-		
-		var masterChange2 = "we want this one";
 		
         return reply(vol);
   };
