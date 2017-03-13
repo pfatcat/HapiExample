@@ -1,11 +1,12 @@
 'use strict';
 
+let roster = [];
 let players = {};
 
-function getRoster(){
+function setRoster(){
 	
 	//this would be a database call or a call to a repository object.
-	let roster = [
+	roster = [
 			{volId: 1, firstName: "Josh", lastName: "Dobbs", position : "Quarterback" },
 			{volId: 2, firstName: "Jalen", lastName: "Hurd", position: "Running Back" },
 			{volId: 3, firstName: "Evan", lastName: "Berry", position: "Defensive Back" },
@@ -20,12 +21,10 @@ function getRoster(){
 
 players.getAllVols = function(){
 	
-	return getRoster();
+	return roster;
 };
 
 players.getAVol = function(_volId){
-	
-	let roster = getRoster();
 	
 	for(let i = 0; i < roster.length; i++){
 		let objVol = roster[i];
@@ -36,5 +35,24 @@ players.getAVol = function(_volId){
 	
 	return null;
 };
+
+players.updateAVol = function(_volId, newPosition){
+	
+	var retObj = {success: true, message: "position updated"};
+	
+	let objVol = roster[_volId - 1];
+	
+	if(objVol){
+		objVol.position = newPosition;		
+	}
+	else{
+		retObj.success = false;
+		retObj.message = "Vol player not found";
+	}
+	
+	return retObj;	
+};
+
+setRoster();
 
 module.exports = players;

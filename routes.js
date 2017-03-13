@@ -18,6 +18,14 @@ let routes = [
 		method: 'POST',
 		path:'/getAVol', 
 		handler: controllers.players.getAVol
+	},
+	
+	//http://localhost:8000/getAVol
+	//{"volId": 5, "newPosition": "whatever"}
+	{
+		method: 'POST',
+		path:'/updateAVol', 
+		handler: controllers.players.updateAVol
 	}
 
 ];
